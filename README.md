@@ -101,5 +101,4 @@ dobór kolorów), AI generowało kod na tej podstawie, a ja go czytałem, urucha
 (ręczne testy każdej planszy z listy, w tym `ciasno` i `łąka`) i poprawiałem, gdzie się mylił —
 m.in. jeden z testów jednostkowych miał błędne oczekiwanie (plansza 2×1 z jedną miną wygrywa od
 razu po pierwszym bezpiecznym odkryciu, bo zostaje tylko jedno bezpieczne pole) i błąd z natywnym
-bindingiem Rolldowna na starszym Node. Historia commitów w całości pod moim kontem — nie ma w niej
-żadnego automatycznego podpisu narzędzia.
+bindingiem Rolldowna na starszym Node.
