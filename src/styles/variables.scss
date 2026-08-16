@@ -1,0 +1,55 @@
+// Single source of truth for every color, spacing and size value used in the app.
+// Components must reference these via var(--...), never hardcode a value.
+:root {
+  // Base palette
+  --color-bg: #1e2130;
+  --color-panel-bg: #262a3d;
+  --color-board-bg: #2f3450;
+  --color-text: #e7e9f5;
+  --color-text-muted: #9599b3;
+  --color-border: #171a29;
+  --color-accent: #5b8cff;
+
+  // Cell states
+  --color-cell-hidden: #454b73;
+  --color-cell-hidden-hover: #545c8a;
+  --color-cell-revealed: #262a3d;
+  --color-cell-flag: #f5b942;
+  --color-cell-mine: #ff5d5d;
+  --color-cell-mine-bg: #6e2632;
+
+  // Game status
+  --color-status-playing: var(--color-text-muted);
+  --color-status-won: #5fd88f;
+  --color-status-lost: #ff5d5d;
+
+  // Number colors (1-8), chosen for contrast against --color-cell-revealed
+  --number-color-1: #6ea8fe;
+  --number-color-2: #5fd88f;
+  --number-color-3: #ff8a8a;
+  --number-color-4: #b992f7;
+  --number-color-5: #ffb15c;
+  --number-color-6: #4fd3d3;
+  --number-color-7: #e7e9f5;
+  --number-color-8: #9599b3;
+
+  // Spacing
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  // Sizing
+  --cell-size: 1.75rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --border-width: 1px;
+
+  // Typography
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-size-sm: 0.85rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-weight-bold: 700;
+}
