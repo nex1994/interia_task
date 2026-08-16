@@ -1,6 +1,8 @@
-import type { MouseEvent } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import type { Cell as CellModel } from '../../logic/board'
 import styles from './Cell.module.scss'
+
+const LONG_PRESS_MS = 450
 
 type CellProps = {
   cell: CellModel
@@ -23,6 +25,37 @@ export function Cell({ cell, lost, onReveal, onFlag }: CellProps) {
     .filter(Boolean)
     .join(' ')
 
+  // Real mobile browsers don't turn a long-press into a `contextmenu` event
+  // the way desktop right-click (or Chrome's devtools touch emulation) does,
+  // so long-press-to-flag is detected by hand with a touch timer. The click
+  // that a touchend still triggers afterwards is swallowed via this flag,
+  // since preventDefault() on touchend isn't reliable enough to stop it.
+  const longPressTimer = useRef<number | null>(null)
+  const suppressNextClick = useRef(false)
+
+  function clearLongPressTimer() {
+    if (longPressTimer.current !== null) {
+      window.clearTimeout(longPressTimer.current)
+      longPressTimer.current = null
+    }
+  }
+
+  function handleTouchStart() {
+    clearLongPressTimer()
+    longPressTimer.current = window.setTimeout(() => {
+      suppressNextClick.current = true
+      onFlag()
+    }, LONG_PRESS_MS)
+  }
+
+  function handleClick() {
+    if (suppressNextClick.current) {
+      suppressNextClick.current = false
+      return
+    }
+    onReveal()
+  }
+
   function handleContextMenu(event: MouseEvent) {
     event.preventDefault()
     onFlag()
@@ -32,8 +65,12 @@ export function Cell({ cell, lost, onReveal, onFlag }: CellProps) {
     <button
       type="button"
       className={modifiers}
-      onClick={onReveal}
+      onClick={handleClick}
       onContextMenu={handleContextMenu}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={clearLongPressTimer}
+      onTouchMove={clearLongPressTimer}
+      onTouchCancel={clearLongPressTimer}
       aria-label={cellLabel(cell, showMine)}
     >
       {showMine ? '💣' : cell.flagged ? '🚩' : cell.revealed && cell.adjacent > 0 ? cell.adjacent : ''}

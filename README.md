@@ -28,9 +28,11 @@ Zrobione: cały wymagany zakres. `src/logic/board.ts` z narzuconym kontraktem (`
 respektująca flagi, chording, wygrana/przegrana z blokadą dalszych ruchów, licznik min, wybór
 planszy z listy i restart, style w SCSS/CSS Modules z konwencją BEM i zmiennymi CSS w jednym pliku,
 11 testów (cztery wymagane kategorie plus kilka dodatkowych pod dane wejściowe i chording).
-Flagowanie działa też na dotyku — przeglądarki mobilne wysyłają natywny `contextmenu` po
-przytrzymaniu, więc ten sam handler co dla prawego przycisku myszy obsługuje oba przypadki; w UI
-jest krótka instrukcja tłumacząca to sterowanie.
+Flagowanie działa też na dotyku przez ręcznie zaimplementowane przytrzymanie (`onTouchStart` +
+timer 450ms w `Cell.tsx`) — na prawdziwym telefonie długi dotyk nie wysyła natywnego `contextmenu`
+tak jak emulacja dotyku w devtoolsach na komputerze, więc poleganie na tym samym handlerze co dla
+prawego przycisku myszy nie działało poza devtoolsami; w UI jest krótka instrukcja tłumacząca to
+sterowanie.
 
 Nie zrobione świadomie: brak obsługi klawiatury (strzałki + spacja/flaga) — dodałbym to jako
 pierwsze usprawnienie dostępności, ale nie było w zakresie i gra działa w pełni myszką. Brak

@@ -11,6 +11,8 @@
   justify-content: center;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
 }
 
 .cell--hidden {
