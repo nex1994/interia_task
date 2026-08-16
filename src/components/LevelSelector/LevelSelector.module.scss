@@ -1,0 +1,21 @@
+.selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.selector__label {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.selector__input {
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-panel-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+}
