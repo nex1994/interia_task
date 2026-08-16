@@ -18,6 +18,7 @@
 
     /* Type checking */
     "strict": true,
+    "resolveJsonModule": true,
 
     /* Linting */
     "noUnusedLocals": true,
