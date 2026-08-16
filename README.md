@@ -3,6 +3,8 @@
 Zadanie rekrutacyjne — Frontend Developer (Interia). Saper z planszami wczytywanymi z
 `src/data/saper-plansze.json`.
 
+Działające demo: **https://interia-task.vercel.app/**
+
 ## 1. Jak uruchomić
 
 Wymagany Node w wersji `^20.19.0 || >=22.12.0` (starsze `20.x`, np. `20.18`, mają problem z
