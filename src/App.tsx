@@ -11,6 +11,9 @@ function App() {
   return (
     <main className={styles.app}>
       <h1 className={styles.app__title}>Saper</h1>
+      <p className={styles.app__hint}>
+        Klik / dotknięcie — odkryj pole. Prawy klik / przytrzymanie — flaga.
+      </p>
       <LevelSelector levels={levels} currentLevelId={currentLevel.id} onSelect={selectLevel} />
       <GameStatus board={board} minesRemaining={minesRemaining} onRestart={restart} />
       <Board board={board} onReveal={reveal} onFlag={flag} />

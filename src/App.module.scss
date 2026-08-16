@@ -10,3 +10,10 @@
   color: var(--color-text);
   margin: 0 0 var(--space-sm);
 }
+
+.app__hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-sm);
+  text-align: center;
+}
