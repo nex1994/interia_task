@@ -1,0 +1,7 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--board-columns), var(--cell-size));
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-board-bg);
+  width: fit-content;
+}

@@ -1,0 +1,41 @@
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  padding: 0;
+  border: var(--border-width) solid var(--color-border);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell--hidden {
+  background: var(--color-cell-hidden);
+
+  &:hover {
+    background: var(--color-cell-hidden-hover);
+  }
+}
+
+.cell--revealed {
+  background: var(--color-cell-revealed);
+  cursor: default;
+}
+
+.cell--flagged {
+  background: var(--color-cell-hidden);
+}
+
+.cell--mine {
+  background: var(--color-cell-mine-bg);
+}
+
+@for $i from 1 through 8 {
+  .cell--number-#{$i} {
+    color: var(--number-color-#{$i});
+  }
+}
